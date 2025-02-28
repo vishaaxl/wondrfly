@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="py-6">
+    <h1 class="text-4xl font-semibold pb-4">The best Kids activities</h1>
+    <h4 class="text-xl font-medium text-gray-700">
+      Boost skills, spark fun, inspire kids in <br />
+      afterschool joy!
+    </h4>
+  </div>
+
+  <!-- Tab List -->
+  <div
+    #tabSection
+    class="w-full bg-white sticky z-[999] top-0 flex overflow-x-auto border-b border-gray-300"
+  >
+    <div
+      *ngFor="let c of categories; let idx = index"
+      [ngClass]="{
+        'text-indigo-600 border-b-3 border-b-indigo-600': activeTab === c.name,
+        'text-gray-700': activeTab !== c.name
+      }"
+      class="py-3 px-6 text-center cursor-pointer font-medium"
+      (click)="handleTabClick(c.name, idx)"
+    >
+      {{ c.name }}
+    </div>
+  </div>
+
+  <!-- Category Sections -->
+<div *ngFor="let c of categories; let idx = index">
+  <div #categorySection class="py-3 cursor-pointer font-medium">
+    <div *ngIf="idx !== 0" class="pl-6 text-2xl font-medium pb-6">
+      {{ c.name }}
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div
+        *ngFor="let p of c.providers; let pIdx = index"
+        class="w-full sm:scale-100 bg-gray-100 rounded-xl overflow-hidden p-6 border-3 border-slate-100 hover:border-slate-300 transition duration-300 cursor-pointer"
+      >
+        <div class="card-body pt-4">
+          <img
+            class="w-full aspect-auto rounded-xl"
+            src="https://images.unsplash.com/vector-1740575576357-e0310632ccb8?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+        </div>
+        <div class="card-footer flex flex-col py-2">
+          <h2 class="text-xl font-semibold py-2">{{ p.title }}</h2>
+          <div class="description text-gray-900/60">
+            <div class="time flex items-center gap-2 py-1">
+              <i class="fa-regular fa-calendar"></i>
+              <p class="text-xs font-medium">March 11, 2025</p>
+            </div>
+            <div class="location flex items-center gap-2 py-1">
+              <i class="fa-solid fa-street-view"></i>
+              <p class="text-xs font-medium">
+                GBK Stadium. Jakarta, Indonesia
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

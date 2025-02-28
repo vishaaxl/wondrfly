@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import "tailwindcss";
+
+body {
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.container {
+  max-width: 767px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  color: #242424;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
